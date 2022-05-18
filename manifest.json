@@ -1,0 +1,32 @@
+{
+  "name": "Nuke Code Scanner",
+  "version": "0.5.3",
+  "description": "A chrome extension to scan nuke codes in Telegram",
+  "browser_action": {
+    "default_popup": "index.html"
+  },
+  "permissions": [
+    "downloads",
+    "tabs",
+    "https://telegram.org/",
+    "https://web.telegram.org/",
+    "storage"
+  ],
+  "icons": {
+    "16":  "./icons/icon16.png",
+    "64":  "./icons/icon48.png",
+    "48":  "./icons/icon64.png",
+    "128": "./icons/icon128.png"
+  },
+  "author": "Akio",
+  "background": {
+    "scripts": ["./scripts/background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.telegram.org/*"],
+      "js": ["./scripts/content.js"]
+    }
+  ],
+  "manifest_version": 2
+}
